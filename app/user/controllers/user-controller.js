@@ -1,6 +1,5 @@
 (function () {
   'use strict';
-
   /**
    * @ngdoc object
    * @name user.controller:UserCtrl
@@ -12,25 +11,23 @@
     .module('user')
     .controller('UserCtrl', UserCtrl);
 
-  UserCtrl.$inject = ['Authentification'];
+  UserCtrl.$inject = ['Authentification','$state'];
 
-  function UserCtrl(Authentification) {
+  function UserCtrl(Authentification,$state) {
     var vm = this;
     vm.ctrlName = 'UserCtrl';
 
-    //TODO verificar si el usuario esta logeado
     var isLogin = Authentification.isLogin();
 
-    if(isLogin){
-
+    if(!isLogin) {
+      $state.go('home');
     }
 
-    //TODO solicitar los recursos para el usuario
+    // TODO solicitar los recursos para el usuario
     function requestAllowRecurses() {
-
+      Authentification.requestAllowRecurses();
     }
 
-    //TODO mostrar un menu con los servicios del usuario
-
+    // TODO mostrar un menu con los servicios del usuario
   }
 }());

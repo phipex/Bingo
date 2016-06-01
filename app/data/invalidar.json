@@ -1,0 +1,9 @@
+/**
+*
+Request URL:http://localhost:8084/war/jaxrs/seguridad/invalidar?token=6vlefhng3ern8pd00susresi9o7obnd9hnqjngh5revavcqu4dfv
+Request Method:GET
+
+token:6vlefhng3ern8pd00susresi9o7obnd9hnqjngh5revavcqu4dfv
+
+*/
+{"data":true,"moreInfo":null}

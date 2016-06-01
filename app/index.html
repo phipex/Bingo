@@ -24,7 +24,7 @@
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <a class='navbar-brand' href='#/'>Bingo</a>
+          <a class='navbar-brand' href='#/'>Bingo {{main.isLogin}} {{main.userName}}</a>
         </div>
         <div class='navbar-collapse collapse' collapse='navCollapsed'>
           <!--<ul class='nav navbar-nav'>
@@ -33,7 +33,8 @@
             </li>
           </ul>-->
           <ul class="navbar navbar-nav navbar-right">
-            <li ng-show="main.isLogIn">
+            <li ng-show="main.isLogin">
+
               <p class="navbar-text navbar-right">
                 Bienvenido {{main.userName}},
                 <a href="#" class="navbar-link" ng-click="main.clickSingOut()">Cerrar</a>
@@ -41,7 +42,7 @@
 
 
             </li>
-            <li ng-hide="main.isLogIn">
+            <li ng-hide="main.isLogin">
               <button type="button" ng-click="main.clickSingIn()" class="btn btn-default navbar-btn">Ingresar</button>
             </li>
           </ul>

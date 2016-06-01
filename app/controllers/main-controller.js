@@ -12,9 +12,9 @@
     .module('bingo')
     .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['Authentification','$state'];
+  MainCtrl.$inject = ['$scope', 'Authentification', '$state', 'events', '$timeout'];
 
-  function MainCtrl(Authentification,$state) {
+  function MainCtrl($scope, Authentification, $state,events, $timeout) {
     var vm = this;
 
     /* modelos */
@@ -28,13 +28,15 @@
      * Nombre del usuario
      * @type {string}
        */
-    vm.userName = 'Rata';
-
+    vm.userName = '';
+    $scope.userName = vm.userName;
       /**
        * Hay un usuario logeado en este momento
        * @type {boolean}
        */
     vm.isLogIn = false;
+
+    $scope.isLogIn = vm.isLogIn;
 
     // eventos
 
@@ -52,21 +54,62 @@
 
 
 
+    // eventos
+
+    /**
+     * evento disparado cuando el estado del login cambia
+     * (es llamado por el login)
+     */
+    $scope.$on(events.ON_LOGIN_CHANGE,function(event,data) {
+      console.log("Events.ON_LOGIN_CHANGE",data);
+      updateShowUser(data.usuario);
+    });
+
+
+
+
+    //verificar si esta logeado para entrar de una
+    checkCurrentLogin();
+
+    /**
+     * Verifica si hay alguien logeado en el momento
+     */
+    function checkCurrentLogin() {
+      var currentUser = Authentification.getCurrentUser();
+      if(currentUser){
+        updateShowUser(currentUser);
+      }
+    }
+
+    /**
+     * Actualiza el usuario actual
+     * @param usuario
+       */
+    function updateShowUser(usuario){
+      vm.isLogin = (usuario && usuario !== "");
+      //console.log("vm.isLogin",vm.isLogin,"$scope.isLogin",$scope.isLogin);
+      if (vm.isLogin) {
+        vm.userName = usuario;
+      }
+    }
+
+    /**
+     * cierra la session del usuario actual
+     */
     function clickSingOut() {
       console.log('clickSingOut');
-      vm.isLogIn = false;
+      vm.isLogin = false;
+      vm.userName = null;
+      Authentification.logout();
       $state.go('home');
     }
 
+    /**
+     * evento que llama a la vista del login
+     */
     function clickSingIn() {
-
-      var userName, password;
-      console.log('clickSingIn');
-      vm.isLogIn = true;
-      Authentification.login(userName, password);
-      $state.go('user');
+      console.log('vamor para login');
+      $state.go('login');
     }
-
   }
-
 }());
