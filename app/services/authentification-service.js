@@ -32,7 +32,6 @@
       login: login,
       logout: logout,
       isLogin: isLogin,
-      getAllowedRecurses: getAllowedRecurses,
       getCurrentUser: getCurrentUser,
       getCurrentToken: getCurrentToken
     };
@@ -54,8 +53,9 @@
     function login(userName, password) {
       var deferred = $q.defer();
 
-      var url = 'data/login.json';
+      //var url = 'http://127.0.0.1:8787/login.json';
         var server = "http://localhost:8084/war/jaxrs/seguridad";
+      //$http.get(url, {
       $http.post(server, {
         usuario: userName,
         clave: password
@@ -89,6 +89,7 @@
     function logout() {
 
       var server = "http://localhost:8084/war/jaxrs/seguridad/invalidar";
+      var json = "http://127.0.0.1:8787/invalidar.json";
       $http.get(server, {
         token: userInfo.accessToken
       }).then(function(result) {
@@ -100,7 +101,7 @@
         }else{
         }
       }, function(error) {
-
+        deferred.reject({error:"datos no validos"});
       });
     }
 
@@ -115,13 +116,6 @@
         res = true;
       }
       return res;
-    }
-
-      /**
-       * Retorna los recursos permitidos para el rol del usuario actual
-       */
-    function getAllowedRecurses() {
-
     }
 
     /**

@@ -1,14 +1,3 @@
-/**
-Ultimo sorteo
-GET
-Request URL:http://localhost:8084/war/jaxrs/sorteo/ultimo?token=6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu
-
-token:6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu
-
-
-
-*/
-
 {
 	"id" : null,
 	"inscrito" : null,

@@ -1,12 +1,4 @@
-/**
-SOlicita los minutos
-GET
-
-Request URL:http://localhost:8084/war/jaxrs/configuracion/minutos?token=6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu
-
-
- **  /
- {
+{
 	"data" : [{
 			"codigo" : 0,
 			"nombre" : "00",

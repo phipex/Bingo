@@ -28,7 +28,7 @@
 
 
     /**
-     * evento que llama el servicio para crear la session del usuario
+     * evento disparado por el boton que llama el servicio para crear la session del usuario
      */
     function signIn(){
       console.log("click en sign in");
@@ -36,8 +36,10 @@
       var nombre = loginctrl.name;
       var pass = loginctrl.pass;
       var isNoEmty = (nombre !== "" && pass !== "");
+      console.log(nombre,pass,isNoEmty);
       if(isNoEmty){
         console.log("dentro del id",isNoEmty);
+        // TODO mostrar un mensaje de cargando
         Authentification.login(nombre,pass)
           .then(function (result) {
             loginctrl.userInfo = result.usuario;
@@ -48,7 +50,7 @@
             $state.go('user',{}).then(function (argument) {
               console.log(argument);
             },function (a,b,c) {
-              console.trace(a,b,c);
+              console.log(a,b,c);
             })
 
           }, function (error) {

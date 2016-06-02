@@ -11,22 +11,58 @@
     .module('user')
     .controller('UserCtrl', UserCtrl);
 
-  UserCtrl.$inject = ['Authentification','$state'];
+  UserCtrl.$inject = ['Authentification','$state','Recursos','$scope'];
 
-  function UserCtrl(Authentification,$state) {
-    var vm = this;
-    vm.ctrlName = 'UserCtrl';
+  function UserCtrl(Authentification,$state,Recursos,$scope) {
+    var userctrl = this;
+    userctrl.ctrlName = 'UserCtrl';
 
-    var isLogin = Authentification.isLogin();
 
-    if(!isLogin) {
-      $state.go('home');
+    ////// modelos
+    userctrl.menu = [];
+
+    ///// eventos
+    $scope.clickMenu = clickMenu;
+
+    inicializarInterfaz();
+
+    function inicializarInterfaz() {
+      var isLogin = Authentification.isLogin();
+
+      if(!isLogin) {
+        $state.go('home');
+      }else{
+        requestAllowRecurses();
+      }
+    }
+
+
+
+
+    function clickMenu(objeto) {
+      console.log("clickmenu",objeto);
+      //var state = objeto.state;
+      var state=objeto;
+      console.log(state);
+      $state.go('user.'+state);
     }
 
     // TODO solicitar los recursos para el usuario
+    /**
+     * Solicita los recursos y llena el menu
+     */
     function requestAllowRecurses() {
-      Authentification.requestAllowRecurses();
+      Recursos.getRecurses().then(function (recurses) {
+        console.log("requestAllowRecurses",recurses);
+        userctrl.menu = recurses;
+      },
+      function (res) {
+        console.log(res);
+      });
+
     }
+
+
 
     // TODO mostrar un menu con los servicios del usuario
   }
