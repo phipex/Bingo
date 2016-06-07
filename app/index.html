@@ -12,10 +12,30 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!--<link rel="stylesheet" href="//bootswatch.com/cerulean/bootstrap.min.css">-->
+    <style>
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+      }
+      .footer,footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        background-color: #f5f5f5;
+      }
+
+    </style>
+
   </head>
   <body ng-controller="MainCtrl as main">
 
-    <div class='navbar navbar-inverse' role='navigation'>
+   <div class='navbar navbar-inverse' role='navigation'>
       <div class='container'>
         <div class='navbar-header'>
           <button class='navbar-toggle collapsed' type='button' data-ng-init='navCollapsed = true' data-ng-click='navCollapsed = !navCollapsed'>
@@ -24,7 +44,7 @@
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <a class='navbar-brand' href='#/'>Bingo {{main.isLogin}} {{main.userName}}</a>
+          <a class='navbar-brand' href='#/user'>Bingo {{main.isLogin}} {{main.userName}}</a>
         </div>
         <div class='navbar-collapse collapse' collapse='navCollapsed'>
           <!--<ul class='nav navbar-nav'>
@@ -49,13 +69,16 @@
         </div>
       </div>
     </div>
-
     <div class='container'>
       <div data-ui-view>
 
       </div>
     </div>
-
+   <footer class="footer pull-right">
+     <div class="container">
+       <p class="text-muted">Intelligent Electronic Solutions ® 2016</p>
+     </div>
+   </footer>
     <!-- bower:js -->
     <!-- endbower -->
     <!-- inject:js -->

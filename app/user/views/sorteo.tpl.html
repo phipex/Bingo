@@ -1,2 +1,24 @@
-<h2>sorteo</h2>
-<p>{{sorteo.ctrlName}}</p>
+<h2>Sorteo</h2>
+<!--<p>{{sorteo.ctrlName}}</p>-->
+
+<div class='toolbar'>
+    <div class='wrapper text-center'>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default">
+          <a ui-sref="user.sorteo.controles">Controles</a>
+        </label>
+        <label class="btn btn-default">
+          <a ui-sref="user.sorteo.administrar">Administrar</a>
+        </label>
+        <label class="btn btn-default">
+          <a ui-sref="user.sorteo.pagos">Pagos</a>
+        </label>
+        <label class="btn btn-default">
+          <a ui-sref="user.sorteo.promociones">Promociones</a>
+        </label>
+      </div>
+    </div>
+</div>
+
+
+<section ui-view></section>

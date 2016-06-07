@@ -36,7 +36,14 @@
       }
     }
 
+    ///// configuracion
+    $scope.oneAtATime = true;
 
+    $scope.status = {
+      isCustomHeaderOpen: false,
+      isFirstOpen: true,
+      isFirstDisabled: false
+    };
 
 
     function clickMenu(objeto) {
@@ -54,7 +61,18 @@
     function requestAllowRecurses() {
       Recursos.getRecurses().then(function (recurses) {
         console.log("requestAllowRecurses",recurses);
-        userctrl.menu = recurses;
+
+
+          for (var i = 0, len=arguments.length; i < len; i++) {
+            var obj = arguments[i];
+            for (var j = 0; j < recurses.length; j++) {
+              var obj1 = recurses[j];
+              obj1.open = false;
+
+            }
+            
+          }
+          userctrl.menu = recurses;
       },
       function (res) {
         console.log(res);
