@@ -12,6 +12,12 @@
         templateUrl: 'home/views/home.tpl.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'home/views/login.tpl.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'loginctrl'
       });
   }
 }());

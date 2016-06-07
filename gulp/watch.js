@@ -8,6 +8,10 @@ module.exports = function (gulp, $, config) {
       port: config.port,
       server: {
         baseDir: config.buildDir
+      },
+      middleware: function (req, res, next) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
       }
     });
   });

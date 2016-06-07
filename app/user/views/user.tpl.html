@@ -1,2 +1,54 @@
+<ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="user/views/uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
+
 <h2>user interface</h2>
-<p>{{user.ctrlName}}</p>
+<!--<p>{{user.ctrlName}}</p>-->
+<div class="container">
+  <div ng-show="user.menu.length == 0">
+    <div class="progress">
+      <!--<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+        <span class="sr-only">100% Complete</span>
+      </div>-->
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+        .. Cargando ..
+      </div>
+    </div>
+  </div> <!-- TODO mostrar mensaje de cargando-->
+  <div class="row">
+    <div class="col-md-3">
+
+      <!--<div class="list-group">
+        <div class="list-group-item" ng-repeat="(key, value) in user.menu">{{key}}</div>
+      </div>-->
+
+
+
+
+
+      <uib-accordion ng-show="user.menu.length != 0" close-others="oneAtATime">
+
+        <uib-accordion-group  ng-repeat="(keymenu, valuemenu) in user.menu" is-open="user.menu[keymenu].open" >
+          <uib-accordion-heading>
+            {{keymenu}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down':user.menu[keymenu].open,'glyphicon-chevron-right':!user.menu[keymenu].open }"></i>
+          </uib-accordion-heading>
+          <!--<div class="btn-group-vertical" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" ng-repeat="(key, value) in valuemenu">{{value.nom}}</button>
+
+          </div>-->
+
+          <div class="list-group">
+            <div class="list-group-item" ng-repeat="(key, value) in valuemenu">
+              <a href="" ng-click="clickMenu(value.state)" >{{value.nom}}</a>
+            </div>
+
+            <!--<button type="button" class="list-group-item" ng-repeat="(key, value) in valuemenu">{{value.nom}}</button>-->
+          </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+    <div class="col-md-9">
+
+      <section ui-view></section>
+    </div>
+  </div>
+</div>
+

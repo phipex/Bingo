@@ -1,10 +1,3 @@
-/**
-Solicita horas
-GET
-http://localhost:8084/war/jaxrs/configuracion/horas?token=6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu
-token:6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu
-
-**/
 {
 	"data" : [{
 			"codigo" : 0,

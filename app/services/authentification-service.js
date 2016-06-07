@@ -12,14 +12,16 @@
     .module('bingo')
     .service('Authentification', Authentification);
 
-  function Authentification() {
-    // TODO cambiar de diseño
+  Authentification.$inject = ['$http', '$q', '$window'];
 
-    /* var self = this;
+  function Authentification($http, $q, $window) {
 
-    self.get = function () {
-      return 'Authentification';
-    };*/
+    var userInfo = {
+      accessToken: null,
+      userName: null
+    };
+
+    var USER_KEY = "userInfo";
 
     /**
      *
@@ -30,7 +32,8 @@
       login: login,
       logout: logout,
       isLogin: isLogin,
-      getAllowedRecurses: getAllowedRecurses
+      getCurrentUser: getCurrentUser,
+      getCurrentToken: getCurrentToken
     };
 
     /**
@@ -48,7 +51,35 @@
      * @return {promise} promesa con la identificacion del usuario
        */
     function login(userName, password) {
+      var deferred = $q.defer();
 
+      //var url = 'http://127.0.0.1:8787/login.json';
+        var server = "http://localhost:8084/war/jaxrs/seguridad";
+      //$http.get(url, {
+      $http.post(server, {
+        usuario: userName,
+        clave: password
+      }).then(function(result) {
+        console.log(result);
+        if(result.data.data){//verificar que si tenga token
+          userInfo.accessToken= result.data.data;
+          userInfo.userName= userName;
+
+          var res = {"usuario": userName, "token": userInfo.accessToken};
+
+          $window.sessionStorage[USER_KEY] = JSON.stringify(res);//FIX no guarda la session
+          deferred.resolve(res);// clonar el objeto por seguridad
+        }else{
+          //alert("ahora no hay forma mono")
+          deferred.reject({error:"datos no validos"});
+        }
+
+
+      }, function(error) {
+        deferred.reject(error);
+      });
+
+      return deferred.promise;
     }
 
     /**
@@ -57,20 +88,60 @@
      */
     function logout() {
 
+      var server = "http://localhost:8084/war/jaxrs/seguridad/invalidar";
+      var json = "http://127.0.0.1:8787/invalidar.json";
+      $http.get(server, {
+        token: userInfo.accessToken
+      }).then(function(result) {
+        console.log(result);
+        if(result.data.data){
+          userInfo.accessToken= null;
+          userInfo.userName= null;
+          $window.sessionStorage[USER_KEY] = null;
+        }else{
+        }
+      }, function(error) {
+        deferred.reject({error:"datos no validos"});
+      });
     }
 
     /**
      * infica si el usuario esta logeado segun la configuracion local
      */
     function isLogin() {
-
+      var res = false;
+      var sessionStorage = $window.sessionStorage[USER_KEY];
+      var userInfo = (sessionStorage)?JSON.parse(sessionStorage):null;
+      if(userInfo){
+        res = true;
+      }
+      return res;
     }
 
-      /**
-       * Retorna los recursos permitidos para el rol del usuario actual
+    /**
+     * retorna el usuario actual
+     * @return {*}
        */
-    function getAllowedRecurses() {
+    function getCurrentUser() {
+      var sessionStorage = $window.sessionStorage[USER_KEY];
+        var userInfo = (sessionStorage)?JSON.parse(sessionStorage):null;
+      if(userInfo){
+        return userInfo.usuario;
+      }
+      return null;
+    }
 
+    /**
+     * retorna el token actual
+     * @return {*}
+       */
+    function getCurrentToken() {
+      var sessionStorage = $window.sessionStorage[USER_KEY];
+      var userInfo = (sessionStorage)?JSON.parse(sessionStorage):null;
+      if(userInfo){
+        return userInfo.token;
+      }
+      return null;
     }
   }
 }());

@@ -1,14 +1,3 @@
-/**
-Solicita las figuras
-
-GET
-http://localhost:8084/war/jaxrs/configuracion/indice?token=6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu&indice=GF_&fin=0
-token:6g61sdr0gh455h5f08np859rna6dsjse67a54aliu4vgurnnl1nu
-indice:GF_
-fin:0
-
-**/
-
 [{
 		"id" : 8,
 		"propiedad" : "GF_Cabezas y Colas",
