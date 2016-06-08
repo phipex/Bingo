@@ -46,6 +46,7 @@
         }
       })
       .state('user.sorteo.pagos', {
+        parent: 'user.sorteo',
         url: '/pagos',
         templateUrl: 'user/views/user-sorteo-pagos.tpl.html',
         controller: 'UserSorteoPagosCtrl',
@@ -55,6 +56,7 @@
         }
       })
       .state('user.sorteo.promociones', {
+        parent: 'user.sorteo',
         url: '/promociones',
         templateUrl: 'user/views/user-sorteo-promociones.tpl.html',
         controller: 'UserSorteoPromocionesCtrl',
@@ -67,7 +69,10 @@
         url: '/nuevo',
         templateUrl: 'user/views/user-sorteo-nuevo.tpl.html',
         controller: 'UserSorteoNuevoCtrl',
-        controllerAs: 'userSorteoNuevo'
+        controllerAs: 'userSorteoNuevo',
+        data: {
+          displayName: 'Nuevo'
+        }
       });
   }
 }());

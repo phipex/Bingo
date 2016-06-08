@@ -8,12 +8,12 @@
    */
   angular
     .module('bingo', [
-      //librerias
+      // librerias
       'ngAria',
       'ui.router',
       'ui.bootstrap',
       'angularUtils.directives.uiBreadcrumbs',
-      //modulos
+      // modulos
       'home',
       'user'
 
