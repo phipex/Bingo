@@ -191,11 +191,11 @@ var url = "http://localhost:8084/war/jaxrs/usuario/recursos?";
         $http.get(url,{
           params: { token: token }})
           .then(function (result) {
-          console.log(result);
+          //console.log(result);
 
           //sucess: roles,requestRecursos
           //sucess: optMenu,isRequest=true;
-          console.log(result);
+          //console.log(result);
 //TODO verificar los valores de result
 
           var recurses = convertRecurses(result.data);
@@ -224,7 +224,7 @@ var url = "http://localhost:8084/war/jaxrs/usuario/recursos?";
       var len = data.length;
       for (var i = 0; i < len; i++) {
         var recurso = data[i];
-        console.log(recurso);
+        //console.log(recurso);
         //recurso = toTitleCase(recurso);
         //recurso = recurso.split('_').pop().join("_");
         recurso = recurso.split("_");
@@ -232,7 +232,7 @@ var url = "http://localhost:8084/war/jaxrs/usuario/recursos?";
 
         recurso.splice(lenrecurso-1,1);
         recurso.join("_");
-        console.log(recurso);
+        //console.log(recurso);
         recursos[recurso] = null;
 
       }
