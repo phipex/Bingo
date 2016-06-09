@@ -24,24 +24,41 @@
 
 
 
+
       <uib-accordion ng-show="user.menu.length != 0" close-others="oneAtATime">
 
         <uib-accordion-group  ng-repeat="(keymenu, valuemenu) in user.menu" is-open="user.menu[keymenu].open" >
           <uib-accordion-heading>
             {{keymenu}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down':user.menu[keymenu].open,'glyphicon-chevron-right':!user.menu[keymenu].open }"></i>
           </uib-accordion-heading>
-          <!--<div class="btn-group-vertical" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" ng-repeat="(key, value) in valuemenu">{{value.nom}}</button>
 
-          </div>-->
+          <div class="btn-group-vertical btn-block" role="group" aria-label="..." >
+            <div ng-repeat="(key, value) in valuemenu"
+                 role="group"
+                 ng-class="{'btn btn-default':value.child.length == 0, 'btn-group':value.child.length != 0}"
 
-          <div class="list-group">
-            <div class="list-group-item" ng-repeat="(key, value) in valuemenu">
-              <a href="" ng-click="clickMenu(value.state)" >{{value.nom}}</a>
+                 uib-dropdown
+                  >
+                <div ng-if="value.child.length == 0">
+                  {{value.nom}}
+
+                </div>
+
+              <button ng-if="value.child.length !== 0"  type="button" class="btn btn-default" uib-dropdown-toggle>
+                {{value.nom}} <span class="caret"></span>
+              </button>
+              <ul ng-if="value.child.length !== 0" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="child in value.child">
+                  <a ui-sref="user.sorteo.{{child.state}}">{{child.name}}</a>
+                </li>
+              </ul>
+
+
             </div>
 
-            <!--<button type="button" class="list-group-item" ng-repeat="(key, value) in valuemenu">{{value.nom}}</button>-->
+
           </div>
+
         </uib-accordion-group>
       </uib-accordion>
     </div>

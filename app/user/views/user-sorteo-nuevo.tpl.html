@@ -1,2 +1,147 @@
 <h2>userSorteoNuevo</h2>
 <p>{{userSorteoNuevo.ctrlName}}</p>
+
+
+<form class="form-horizontal">
+
+
+  <pre class="alert alert-info">La hora del sorteo sera: {{mytime | date:"EEEE d 'de' MMMM 'del' y HH:mm:ss" }}</pre>
+  <div class="row form-group">
+    <div class="col-md-6">
+      <h4>Seleccione fecha y hora</h4>
+      <p class="input-group">
+
+        <input type="text" class="form-control" uib-datepicker-popup ng-model="mytime" datepicker-options="dateOptions" is-open="popup2.opened" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <p class="input-group">
+        <uib-timepicker ng-model="mytime" min="minDateTime" show-meridian="false"></uib-timepicker>
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-5">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Con publicidad
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Velocidad de Balotas</label>
+    <div class="col-sm-5">
+      <select class="form-control" id="velBalotas">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Estado Sorteo</label>
+    <div class="col-sm-5">
+      <select class="form-control" id="estadoSorteo">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Tipo de Sorteo</label>
+    <div class="col-sm-5">
+      <select class="form-control" id="tipoSorteo">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Figura</label>
+    <div class="col-sm-5">
+      <select class="form-control" id="figuraSorteo">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Tipo de Premio</label>
+    <div class="col-sm-5">
+      <select class="form-control" id="tipoPremio">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPremioGrantizado" class="col-sm-4 control-label">Premio Grantizado</label>
+    <div class="col-sm-5">
+      <input type="number" class="form-control" id="inputPremioGrantizado" placeholder="Ingrese Valor">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputValorTabla" class="col-sm-4 control-label">Valor Tabla</label>
+    <div class="col-sm-5">
+      <input type="number" class="form-control" id="inputValorTabla" placeholder="Ingrese Valor">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-5">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Automatico
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-5">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Ejecucion Local
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-5">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Audio
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-1 col-sm-4">
+      <button type="submit" class="btn btn-default center-block">Guardar</button>
+    </div>
+    <div class="col-sm-4" >
+      <button type="submit" class="btn btn-default center-block">Cancelar</button>
+    </div>
+  </div>
+
+
+
+</form>
