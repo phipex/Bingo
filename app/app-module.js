@@ -12,6 +12,7 @@
       'ngAria',
       'ui.router',
       'ui.bootstrap',
+      'ngAnimate',
       'angularUtils.directives.uiBreadcrumbs',
       // modulos
       'home',
