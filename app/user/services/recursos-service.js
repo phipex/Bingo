@@ -29,97 +29,160 @@
       "CUADRE" : {
         "parent" : "Venta",
         "nom" : "Cuadre de Caja",
-        "state" : "cuadre"
+        "state" : "cuadre",
+        "child":[
+
+        ]
+
 
       },
       "CONFIGURACION" : {
         "parent" : "Parametros",
         "nom" : "Configuracion",
-        "state" : "configuracion"
+        "state" : "configuracion",
+        "child":[
+
+        ]
 
       },
       "FIGURA" : {
         "parent" : "Parametros",
         "nom" : "Figura",
-        "state" : "figura"
+        "state" : "figura",
+        "child":[
+
+        ]
 
       },
       "GANADOR" : {
         "parent" : "Sorteo",
         "nom" : "Ganador",
-        "state" : "ganador"
+        "state" : "ganador",
+        "child":[
+
+        ]
 
       },
       "PERSONA" : {
         "parent" : "Parametros",
         "nom" : "Persona",
-        "state" : "persona"
+        "state" : "persona",
+        "child":[
+
+        ]
 
       },
       "PREMIO,PROMOCIONAL" : {
         "parent" : "Parametros",
         "nom" : "Premio Promocional",
-        "state" : "premiopromo"
+        "state" : "premiopromo",
+        "child":[
+
+        ]
 
       },
       "PROMOCION" : {
         "parent" : "Sorteo",
         "nom" : "Promociones",
-        "state" : "promocion"
+        "state" : "promocion",
+        "child":[
+
+        ]
 
       },
       "AUDIO" : {
         "parent" : "Parametros",
         "nom" : "Archivo Audio",
-        "state" : "archivoaudio"
+        "state" : "archivoaudio",
+        "child":[
+
+        ]
 
       },
       "SORTEO" : {
         "parent" : "Sorteo",
         "nom" : "Sorteo",
-        "state" : "sorteo"
+        "state" : "sorteo",
+        "child":[
+          {
+            "name":"Administrar",
+            "state":"administrar"
+          },
+          {
+            "name":"Controles",
+            "state":"controles"
+          },
+          {
+            "name":"Pagos",
+            "state":"pagos"
+          },{
+            "name":"Premios",
+            "state":"premios"
+          }
+        ]
 
       },
       "USUARIO" : {
         "parent" : "Parametros",
         "nom" : "Usuario",
-        "state" : "usuario"
+        "state" : "usuario",
+        "child":[
+
+        ]
 
       },
       "VENTA" : {
         "parent" : "Venta",
         "nom" : "Vender",
-        "state" : "venta"
+        "state" : "venta",
+        "child":[
+
+        ]
 
       },
       "VIDEO" : {
         "parent" : "Parametros",
         "nom" : "Archivo Video",
-        "state" : "video"
+        "state" : "video",
+        "child":[
+
+        ]
 
       },
       "ASIGNACION" : {
         "parent" : "Parametros",
         "nom" : "Asignacion",
-        "state" : "asignacion"
+        "state" : "asignacion",
+        "child":[
+
+        ]
 
       },
       "REPORTE,PROMO" : {
         "parent" : "Reportes",
         "nom" : "Reporte Promociones",
-        "state" : "reportpromo"
+        "state" : "reportpromo",
+        "child":[
+
+        ]
 
       },
       "REPORTE,AUDI" : {
         "parent" : "Reportes",
         "nom" : "Reporte Auditoria",
-        "state" : "reportaudi"
+        "state" : "reportaudi",
+        "child":[
+
+        ]
 
       },
       "REPORTE" : {
         "parent" : "Reportes",
         "nom" : "Reporte Sorteos",
-        "state" : "reporte"
+        "state" : "reporte",
+        "child":[
+
+        ]
 
       }
     };
