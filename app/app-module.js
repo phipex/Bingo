@@ -14,6 +14,7 @@
       'ui.bootstrap',
       'ngAnimate',
       'angularUtils.directives.uiBreadcrumbs',
+      'angular-loading-bar',
       // modulos
       'home',
       'user'

@@ -12,8 +12,14 @@
     .module('user')
     .controller('SorteoCtrl', SorteoCtrl);
 
-  function SorteoCtrl() {
+  SorteoCtrl.$inject = ['$state'];
+
+  function SorteoCtrl($state) {
     var vm = this;
     vm.ctrlName = 'SorteoCtrl';
+    console.log("SorteoCtrl",$state);
+
+
+
   }
 }());

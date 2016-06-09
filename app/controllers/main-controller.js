@@ -12,9 +12,9 @@
     .module('bingo')
     .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['$scope', 'Authentification', '$state', 'events', '$timeout'];
+  MainCtrl.$inject = ['$scope', 'Authentification', '$state', 'events', '$timeout','Recursos'];
 
-  function MainCtrl($scope, Authentification, $state,events, $timeout) {
+  function MainCtrl($scope, Authentification, $state,events, $timeout,Recursos) {
     var vm = this;
 
     /* modelos */
@@ -100,6 +100,7 @@
       console.log('clickSingOut');
       vm.isLogin = false;
       vm.userName = null;
+      Recursos.clear();
       Authentification.logout();
       $state.go('home');
     }
@@ -109,6 +110,7 @@
      */
     function clickSingIn() {
       console.log('vamor para login');
+      // TODO agregar un mensaje de cargando
       $state.go('login');
     }
   }

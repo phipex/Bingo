@@ -18,6 +18,13 @@
     userctrl.ctrlName = 'UserCtrl';
 
 
+    var estados = $state.get();
+    for (var i = 0, length = estados.length; i < length; i++) {
+      var obj = estados[i];
+      console.log(obj.name);
+
+    }
+
     ////// modelos
     userctrl.menu = [];
 
@@ -70,7 +77,7 @@
               obj1.open = false;
 
             }
-            
+
           }
           userctrl.menu = recurses;
       },
