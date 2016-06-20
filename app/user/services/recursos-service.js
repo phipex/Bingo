@@ -194,11 +194,23 @@
     self.getRecurses = function () {
       var res = null;
       if(isRequest){
-        res = optMenu;
+        var deferred = $q.defer();
+        deferred.resolve(optMenu);
+
+        res = deferred.promise;
       }else{
         res = requestUsuario();
       }
       return res;
+    };
+
+      /**
+       * limpia todas las variables
+       */
+    self.clear =function () {
+      isRequest = false;
+      optMenu = {};
+      roles = [];
     };
 
     /**
@@ -220,7 +232,8 @@
           roles = result.data.roles;
           //sucess: roles,requestRecursos
             //sucess: optMenu,isRequest=true;
-          resquestRecursos(deferred,token);
+            isRequest=true;// TODO asociar a cerrar cesion
+            resquestRecursos(deferred,token);
 
           //deferred.resolve(result);
         },function () {
@@ -263,7 +276,8 @@ var url = "http://localhost:8084/war/jaxrs/usuario/recursos?";
 
           var recurses = convertRecurses(result.data);
           var map = generateMapRecurse(recurses);
-          deferred.resolve(map);
+          optMenu = map;
+            deferred.resolve(map);
         },function () {
 
         });
@@ -284,8 +298,8 @@ var url = "http://localhost:8084/war/jaxrs/usuario/recursos?";
     function convertRecurses(data) {
       var recursos = {};
 
-      var len = data.length;
-      for (var i = 0; i < len; i++) {
+      //var len = data.length;
+      for (var i = 0,len = data.length; i < len; i++) {
         var recurso = data[i];
         //console.log(recurso);
         //recurso = toTitleCase(recurso);
