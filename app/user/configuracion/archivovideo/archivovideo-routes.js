@@ -13,19 +13,19 @@
         controller: 'ArchivovideoCtrl',
         controllerAs: 'archivovideo'
       })
-      .state('video', {
+      .state('archivovideo.video', {
         url: '/video',
         templateUrl: 'user/configuracion/archivovideo/views/video.tpl.html',
         controller: 'VideoCtrl',
         controllerAs: 'video'
       })
-      .state('nuevo', {
+      .state('archivovideo.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/configuracion/archivovideo/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',
         controllerAs: 'nuevo'
       })
-      .state('editar', {
+      .state('archivovideo.editar', {
         url: '/editar',
         templateUrl: 'user/configuracion/archivovideo/views/editar.tpl.html',
         controller: 'EditarCtrl',

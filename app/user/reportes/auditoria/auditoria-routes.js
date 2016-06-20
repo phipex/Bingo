@@ -13,7 +13,7 @@
         controller: 'AuditoriaCtrl',
         controllerAs: 'auditoria'
       })
-      .state('auditoria', {
+      .state('auditoria.auditoria', {
         url: '/auditoria',
         templateUrl: 'user/reportes/auditoria/views/auditoria.tpl.html',
         controller: 'AuditoriaCtrl',

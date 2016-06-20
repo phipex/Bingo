@@ -7,6 +7,5 @@
 
   function config($urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
-    
   }
 }());

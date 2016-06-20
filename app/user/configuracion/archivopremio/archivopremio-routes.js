@@ -13,19 +13,19 @@
         controller: 'ArchivopremioCtrl',
         controllerAs: 'archivopremio'
       })
-      .state('premio', {
+      .state('archivopremio.premio', {
         url: '/premio',
         templateUrl: 'user/configuracion/archivopremio/views/premio.tpl.html',
         controller: 'PremioCtrl',
         controllerAs: 'premio'
       })
-      .state('nuevo', {
+      .state('archivopremio.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/configuracion/archivopremio/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',
         controllerAs: 'nuevo'
       })
-      .state('editar', {
+      .state('archivopremio.editar', {
         url: '/editar',
         templateUrl: 'user/configuracion/archivopremio/views/editar.tpl.html',
         controller: 'EditarCtrl',

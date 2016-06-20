@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test menu</title>
+</head>
+<body>
+<div id="resultado"></div>
+<script>
+  var domresultado = document.querySelector("#resultado");
+
+  var parentDefinicion = {
+    "SORTEO":0,
+    "VENTAS":1,
+    "REPORTES":2
+
+  };
+
+
+  var orden = [
+    {
+
+        "nom": "Sorteo",
+        "child":[
+          {
+            "name": "QUERY"
+
+          },
+          {
+            "name": "ADMIN"
+          }
+
+        ]
+
+    },
+    {
+      "nom": "Ventas",
+        "child":[
+          {
+            "name": "QUERY"
+          },
+          {
+            "name": ""
+          }
+        ]
+
+    },
+    {
+
+        "nom": "Reportes",
+        "child":[
+
+        ]
+
+    }
+
+  ];
+
+  var definicion = {
+    "VENTAS_QUERY":null,
+    "VENTAS_INSERT":null,
+    "SORTEO_QUERY":null,
+    "SORTEO_EDIT": null
+
+  };
+
+  var roles = [
+    "VENTAS_QUERY",
+    "SORTEO_QUERY",
+    "NO_ESTOY"
+
+  ];
+
+  var resultado = [];
+
+  var ordenKeys = Object.keys(orden);
+
+ //sacar grupo
+  for (var i = 0, len = roles.length; i < len; i++) {
+    console.log("----------",i);
+    var rol = roles[i];
+    console.log(rol);
+    var partes = rol.split('_');
+    console.log(partes);
+    var grupo = (partes[0])?partes[0]:null;
+    console.log(grupo);
+    var indice = parentDefinicion[grupo];
+    console.log(indice);
+    if(indice || indice > -1){
+      var parent = orden[indice];
+      console.log("paso"+parent);
+
+
+    }
+
+
+  }
+
+  // limpiar arreglo
+
+  domresultado.innerHTML = JSON.stringify(resultado);
+
+
+</script>
+</body>
+</html>

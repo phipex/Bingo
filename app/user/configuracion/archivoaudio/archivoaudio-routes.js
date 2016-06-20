@@ -13,19 +13,19 @@
         controller: 'ArchivoaudioCtrl',
         controllerAs: 'archivoaudio'
       })
-      .state('audio', {
+      .state('archivoaudio.audio', {
         url: '/audio',
         templateUrl: 'user/configuracion/archivoaudio/views/audio.tpl.html',
         controller: 'AudioCtrl',
         controllerAs: 'audio'
       })
-      .state('nuevo', {
+      .state('archivoaudio.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/configuracion/archivoaudio/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',
         controllerAs: 'nuevo'
       })
-      .state('editar', {
+      .state('archivoaudio.editar', {
         url: '/editar',
         templateUrl: 'user/configuracion/archivoaudio/views/editar.tpl.html',
         controller: 'EditarCtrl',

@@ -13,13 +13,13 @@
         controller: 'AsignacionCtrl',
         controllerAs: 'asignacion'
       })
-      .state('asignacion', {
+      .state('asignacion.asignacion', {
         url: '/asignacion',
         templateUrl: 'user/configuracion/asignacion/views/asignacion.tpl.html',
         controller: 'AsignacionCtrl',
         controllerAs: 'asignacion'
       })
-      .state('nuevo', {
+      .state('asignacion.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/configuracion/asignacion/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',
