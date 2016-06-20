@@ -13,13 +13,13 @@
         controller: 'PagosCtrl',
         controllerAs: 'pagos'
       })
-      .state('pagos', {
+      .state('pagos.pagos', {
         url: '/pagos',
         templateUrl: 'user/sorteo/pagos/views/pagos.tpl.html',
         controller: 'PagosCtrl',
         controllerAs: 'pagos'
       })
-      .state('nuevo', {
+      .state('pagos.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/sorteo/pagos/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',

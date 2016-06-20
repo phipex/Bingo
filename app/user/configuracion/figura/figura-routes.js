@@ -13,19 +13,19 @@
         controller: 'FiguraCtrl',
         controllerAs: 'figura'
       })
-      .state('figura', {
+      .state('figura.figura', {
         url: '/figura',
         templateUrl: 'user/configuracion/figura/views/figura.tpl.html',
         controller: 'FiguraCtrl',
         controllerAs: 'figura'
       })
-      .state('nuevo', {
+      .state('figura.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/configuracion/figura/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',
         controllerAs: 'nuevo'
       })
-      .state('editar', {
+      .state('figura.editar', {
         url: '/editar',
         templateUrl: 'user/configuracion/figura/views/editar.tpl.html',
         controller: 'EditarCtrl',

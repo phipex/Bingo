@@ -13,7 +13,7 @@
         controller: 'VenderCtrl',
         controllerAs: 'vender'
       })
-      .state('ventas', {
+      .state('ventas.vender', {
         url: '/ventas',
         templateUrl: 'user/ventas/vender/views/ventas.tpl.html',
         controller: 'VentasCtrl',

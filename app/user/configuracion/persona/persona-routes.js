@@ -13,19 +13,19 @@
         controller: 'PersonaCtrl',
         controllerAs: 'persona'
       })
-      .state('persona', {
+      .state('persona.persona', {
         url: '/persona',
         templateUrl: 'user/configuracion/persona/views/persona.tpl.html',
         controller: 'PersonaCtrl',
         controllerAs: 'persona'
       })
-      .state('nuevo', {
+      .state('persona.nuevo', {
         url: '/nuevo',
         templateUrl: 'user/configuracion/persona/views/nuevo.tpl.html',
         controller: 'NuevoCtrl',
         controllerAs: 'nuevo'
       })
-      .state('editar', {
+      .state('persona.editar', {
         url: '/editar',
         templateUrl: 'user/configuracion/persona/views/editar.tpl.html',
         controller: 'EditarCtrl',
