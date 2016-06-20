@@ -16,7 +16,7 @@
           displayName: 'User'
         }
       })
-      .state('user.sorteo', {
+      /*.state('user.sorteo', {
         url: '/sorteo',
         templateUrl: 'user/views/sorteo.tpl.html',
         controller: 'SorteoCtrl',
@@ -73,6 +73,7 @@
         data: {
           displayName: 'Nuevo'
         }
-      });
+      })*/
+    ;
   }
 }());

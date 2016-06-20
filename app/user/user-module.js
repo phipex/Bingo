@@ -8,6 +8,11 @@
    */
   angular
     .module('user', [
-      'ui.router'
+      'ui.router',
+      'user.ventas',
+      'user.sorteo',
+      'user.reportes',
+      'user.parametros',
+      'user.configuracion'
     ]);
 }());

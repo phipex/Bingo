@@ -40,16 +40,17 @@
                  uib-dropdown
                   >
                 <div ng-if="value.child.length == 0">
-                  {{value.nom}}
 
+                  <a href="" ng-click="clickMenu(value.state)" >{{value.nom}}</a>
                 </div>
 
               <button ng-if="value.child.length !== 0"  type="button" class="btn btn-default" uib-dropdown-toggle>
-                {{value.nom}} <span class="caret"></span>
+                <a href="">{{value.nom}} <span class="caret"></span></a>
+
               </button>
               <ul ng-if="value.child.length !== 0" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
                 <li ng-repeat="child in value.child">
-                  <a ui-sref="user.sorteo.{{child.state}}">{{child.name}}</a>
+                  <a ui-sref="{{value.state}}.{{child.state}}">{{child.name}}</a>
                 </li>
               </ul>
 
