@@ -8,7 +8,7 @@
   function config($stateProvider) {
     $stateProvider
       .state('sorteo', {
-        parent: 'user',
+        //parent: 'user',
         url: '/sorteo',
         templateUrl: 'user/sorteo/views/sorteo.tpl.html',
         controller: 'SorteoCtrl',

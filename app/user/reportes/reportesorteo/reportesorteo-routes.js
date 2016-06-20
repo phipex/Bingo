@@ -13,7 +13,7 @@
         controller: 'ReportesorteoCtrl',
         controllerAs: 'reportesorteo'
       })
-      .state('sorteo', {
+      .state('reportesorteo.sorteo', {
         url: '/sorteo',
         templateUrl: 'user/reportes/reportesorteo/views/sorteo.tpl.html',
         controller: 'SorteoCtrl',
